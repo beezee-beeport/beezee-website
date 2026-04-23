@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BeeZee — Verified Workers. Verified Jobs. | Blue-Collar Job Platform in India</title>
+<meta name="description" content="BeeZee is an AI-enabled job platform connecting verified blue-collar workers with verified employers across India. Voice-first, WhatsApp-enabled, trust-based. Coming soon on Google Play.">
+<meta name="keywords" content="BeeZee, blue collar jobs India, daily jobs app, naka jobs, contractor hiring, worker jobs, Pune jobs, Hindi jobs, Marathi jobs, verified workers">
+<meta name="theme-color" content="#1A2744">
+<meta property="og:title" content="BeeZee — Verified Workers. Verified Jobs.">
+<meta property="og:description" content="AI-enabled job platform for India's 450M blue-collar workforce. Voice-first. WhatsApp notifications. Always free for workers.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.beezee.co.in">
+<link rel="canonical" href="https://www.beezee.co.in">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231A2744'/%3E%3Ctext x='50%25' y='54%25' font-size='36' font-family='Poppins,sans-serif' font-weight='700' fill='%23F5A623' text-anchor='middle' dominant-baseline='middle'%3EBz%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1A2744;
+    --navy-2: #243355;
+    --navy-dark: #111827;
+    --amber: #F5A623;
+    --amber-deep: #E8940E;
+    --amber-light: #FFF8ED;
+    --blue: #378ADD;
+    --white: #FFFFFF;
+    --off-white: #F9FAFB;
+    --text-gray: #4B5563;
+    --light-gray: #9CA3AF;
+    --border: #E5E7EB;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-gray);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ============ NAVIGATION ============ */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    z-index: 1000;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    background: transparent;
+  }
+
+  .nav.scrolled {
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    color: var(--white);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .logo-mark {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--amber);
+    color: var(--navy);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .logo .bee { color: var(--amber); }
+  .logo .zee { color: inherit; transition: color 0.3s ease; }
+
+  .nav.scrolled .logo .zee { color: var(--navy); }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .nav.scrolled .nav-links a { color: var(--navy); }
+  .nav-links a:hover { color: var(--amber); }
+
+  .nav-cta {
+    background: var(--amber);
+    color: var(--navy) !important;
+    padding: 8px 16px;
+    border-radius: 40px;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .nav-cta:hover {
+    background: var(--amber-deep);
+    color: var(--navy) !important;
+    transform: translateY(-1px);
+  }
+
+  .nav.scrolled .nav-cta { color: var(--navy) !important; }
+
+  .hamburger {
+    display: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    position: relative;
+  }
+
+  .hamburger span {
+    display: block;
+    position: absolute;
+    left: 4px;
+    right: 4px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.2s ease, background 0.3s ease;
+  }
+
+  .hamburger span:nth-child(1) { top: 10px; }
+  .hamburger span:nth-child(2) { top: 15px; }
+  .hamburger span:nth-child(3) { top: 20px; }
+
+  .nav.scrolled .hamburger span { background: var(--navy); }
+
+  .hamburger.open span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+  /* ============ HERO ============ */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 24px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(245, 166, 35, 0.10), transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(55, 138, 221, 0.08), transparent 45%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1100px;
+    text-align: center;
+  }
+
+  .hero-label {
+    font-size: 12px;
+    color: var(--amber);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 16px;
+    animation: fadeInUp 0.7s ease both;
+  }
+
+  .hero-title {
+    font-size: 56px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+    animation: fadeInUp 0.8s 0.05s ease both;
+  }
+
+  .hero-title .bee { color: var(--amber); }
+
+  .hero-tagline {
+    font-size: 22px;
+    color: var(--amber);
+    font-weight: 500;
+    margin-bottom: 20px;
+    animation: fadeInUp 0.8s 0.1s ease both;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.72);
+    max-width: 620px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+    animation: fadeInUp 0.8s 0.15s ease both;
+  }
+
+  .hero-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 48px;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 4px solid var(--amber);
+    border-radius: 12px;
+    padding: 28px 24px;
+    text-align: left;
+    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+    animation: fadeInUp 0.8s 0.25s ease both;
+  }
+
+  .hero-card.company {
+    background: rgba(55, 138, 221, 0.08);
+    border-left-color: var(--blue);
+    animation-delay: 0.35s;
+  }
+
+  .hero-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  .hero-card.company:hover {
+    background: rgba(55, 138, 221, 0.14);
+  }
+
+  .hero-card-icon {
+    font-size: 28px;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .hero-card-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--amber);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .hero-card.company .hero-card-label { color: var(--blue); }
+
+  .hero-card-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 14px;
+    line-height: 1.25;
+  }
+
+  .hero-card-desc {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .hero-card-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--amber);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.2s ease, color 0.2s ease;
+  }
+
+  .hero-card.company .hero-card-link { color: var(--blue); }
+
+  .hero-card-link:hover { gap: 10px; }
+
+  .play-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 22px;
+    background: var(--navy-2);
+    border: 2px solid var(--amber);
+    color: var(--white);
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.8s 0.45s ease both;
+  }
+
+  .play-badge:hover {
+    background: var(--amber);
+    color: var(--navy);
+    transform: translateY(-2px);
+  }
+
+  .play-badge .play-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--amber);
+    color: var(--navy);
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .play-badge:hover .play-icon {
+    background: var(--navy);
+    color: var(--amber);
+  }
+
+  .play-badge .play-icon svg { width: 12px; height: 12px; fill: currentColor; margin-left: 2px; }
+
+  .play-badge-text { display: flex; flex-direction: column; line-height: 1.1; text-align: left; }
+  .play-badge-small { font-size: 10px; font-weight: 400; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.8; }
+  .play-badge-big { font-size: 15px; font-weight: 700; letter-spacing: 0.3px; }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ============ SECTION BASE ============ */
+  .section {
+    padding: 96px 24px;
+  }
+
+  .section-heading {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--navy);
+    text-align: center;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+
+  .section-sub {
+    font-size: 18px;
+    color: var(--text-gray);
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 56px;
+    line-height: 1.7;
+  }
+
+  .section-underline {
+    width: 60px;
+    height: 3px;
+    background: var(--amber);
+    margin: 0 auto 32px;
+    border-radius: 3px;
+  }
+
+  /* ============ FEATURE GRIDS ============ */
+  .workers { background: var(--white); }
+  .companies { background: var(--off-white); }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .feature-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(26, 39, 68, 0.08);
+    border-color: transparent;
+  }
+
+  .feature-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--amber-light);
+    color: var(--amber);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 18px;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  }
+
+  .feature-card:hover .feature-icon {
+    background: var(--amber);
+    transform: scale(1.05);
+  }
+
+  .companies .feature-icon {
+    background: rgba(55, 138, 221, 0.12);
+    color: var(--blue);
+  }
+
+  .companies .feature-card:hover .feature-icon {
+    background: var(--blue);
+    color: var(--white);
+  }
+
+  .feature-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .feature-desc {
+    font-size: 14px;
+    color: var(--text-gray);
+    line-height: 1.65;
+  }
+
+  /* ============ HOW IT WORKS ============ */
+  .how {
+    background: var(--white);
+  }
+
+  .how-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .how-steps::before {
+    content: "";
+    position: absolute;
+    top: 36px;
+    left: 16%;
+    right: 16%;
+    border-top: 2px dashed rgba(245, 166, 35, 0.4);
+    z-index: 0;
+  }
+
+  .how-step {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding: 0 8px;
+  }
+
+  .how-step-num {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--amber);
+    color: var(--navy);
+    font-size: 32px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 20px rgba(245, 166, 35, 0.3);
+  }
+
+  .how-step-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .how-step-desc {
+    font-size: 14px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  /* ============ TRUST ============ */
+  .trust {
+    background: var(--navy);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .trust::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 30% 40%, rgba(245, 166, 35, 0.08), transparent 50%),
+      radial-gradient(circle at 70% 60%, rgba(55, 138, 221, 0.06), transparent 50%);
+    pointer-events: none;
+  }
+
+  .trust .section-heading {
+    color: var(--amber);
+  }
+
+  .trust .section-sub {
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .trust-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-top: 4px solid var(--amber);
+    border-radius: 8px;
+    padding: 28px 24px;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  .trust-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    transform: translateY(-4px);
+  }
+
+  .trust-card-label {
+    font-size: 11px;
+    color: var(--amber);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .trust-card-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 14px;
+  }
+
+  .trust-card-desc {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.7;
+  }
+
+  /* ============ ABOUT ============ */
+  .about {
+    background: var(--amber-light);
+    text-align: center;
+  }
+
+  .about-body {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .about-body p {
+    font-size: 17px;
+    color: var(--text-gray);
+    margin-bottom: 20px;
+    line-height: 1.8;
+  }
+
+  .about-body p:last-of-type { margin-bottom: 32px; }
+
+  .about-parent {
+    padding-top: 24px;
+    border-top: 1px solid rgba(26, 39, 68, 0.1);
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .about-parent-label {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-gray);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .about-parent a {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    text-decoration: none;
+    letter-spacing: -0.3px;
+    transition: color 0.2s ease;
+  }
+
+  .about-parent a:hover { color: var(--amber-deep); }
+  .about-parent a .bee { color: var(--amber); }
+
+  /* ============ CTA ============ */
+  .cta {
+    background: var(--navy);
+    color: var(--white);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(245, 166, 35, 0.12), transparent 55%);
+    pointer-events: none;
+  }
+
+  .cta-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta .section-heading { color: var(--white); }
+
+  .cta-sub {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.72);
+    margin-bottom: 40px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  .cta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background: var(--amber);
+    color: var(--navy);
+    border-radius: 48px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(245, 166, 35, 0.3);
+  }
+
+  .cta-badge:hover {
+    background: var(--amber-deep);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px rgba(245, 166, 35, 0.4);
+  }
+
+  .cta-badge .play-icon {
+    background: var(--navy);
+    color: var(--amber);
+  }
+
+  .cta-contact {
+    margin-top: 48px;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+  }
+
+  .cta-contact a {
+    color: var(--amber);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .cta-contact a:hover { text-decoration: underline; }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    background: var(--navy-dark);
+    color: rgba(255, 255, 255, 0.5);
+    padding: 24px;
+    font-size: 13px;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .footer a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer a:hover { color: var(--amber); }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 1024px) {
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+    .trust-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-title { font-size: 48px; }
+  }
+
+  @media (max-width: 768px) {
+    .section { padding: 72px 24px; }
+    .section-heading { font-size: 28px; }
+    .section-sub { font-size: 16px; margin-bottom: 40px; }
+
+    .nav-links {
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      flex-direction: column;
+      gap: 0;
+      padding: 8px 0;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+      transform: translateY(-120%);
+      transition: transform 0.3s ease;
+      align-items: stretch;
+    }
+
+    .nav-links.open { transform: translateY(0); }
+
+    .nav-links a {
+      display: block;
+      padding: 14px 24px;
+      color: var(--navy);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links .nav-cta {
+      margin: 12px 24px;
+      padding: 12px 18px;
+      text-align: center;
+      border-bottom: 0;
+    }
+
+    .nav-links li:last-child a { border-bottom: 0; }
+
+    .hamburger { display: block; }
+
+    .hero {
+      min-height: auto;
+      padding: 108px 24px 72px;
+    }
+
+    .hero-title { font-size: 36px; }
+    .hero-tagline { font-size: 18px; }
+    .hero-sub { font-size: 15px; margin-bottom: 36px; }
+
+    .hero-cards { grid-template-columns: 1fr; gap: 16px; margin-bottom: 36px; }
+    .hero-card { padding: 24px 20px; }
+    .hero-card-title { font-size: 20px; }
+
+    .features-grid { grid-template-columns: 1fr; gap: 16px; }
+    .trust-grid { grid-template-columns: 1fr; gap: 16px; }
+
+    .how-steps { grid-template-columns: 1fr; gap: 40px; }
+    .how-steps::before { display: none; }
+
+    .footer-inner { justify-content: center; text-align: center; }
+
+    .cta-badge { padding: 14px 24px; font-size: 13px; }
+    .play-badge-big { font-size: 14px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title { font-size: 30px; }
+    .hero-tagline { font-size: 16px; }
+    .section-heading { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="logo" aria-label="BeeZee">
+      <span class="logo-mark" aria-hidden="true">Bz</span>
+      <span><span class="bee">Bee</span><span class="zee">Zee</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#for-workers">For Workers</a></li>
+      <li><a href="#for-companies">For Companies</a></li>
+      <li><a href="#how-it-works">How it works</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#cta" class="nav-cta">Coming Soon</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="hero" id="top">
+  <div class="hero-content">
+    <div class="hero-label">Product</div>
+    <h1 class="hero-title"><span class="bee">Bee</span>Zee</h1>
+    <p class="hero-tagline">Verified Workers. Verified Jobs.</p>
+    <p class="hero-sub">
+      AI-enabled blue-collar job platform for India. Voice-first, WhatsApp-enabled, trust-based — built for the 450 million workers who keep the country running.
+    </p>
+
+    <div class="hero-cards">
+      <div class="hero-card worker">
+        <span class="hero-card-icon" aria-hidden="true">🧰</span>
+        <div class="hero-card-label">For Workers</div>
+        <h2 class="hero-card-title">Find daily and monthly jobs near you</h2>
+        <p class="hero-card-desc">Verified employers. Trust-based matching. Voice-first input in your language.</p>
+        <a href="#for-workers" class="hero-card-link">Learn more <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-card company">
+        <span class="hero-card-icon" aria-hidden="true">🏢</span>
+        <div class="hero-card-label">For Companies</div>
+        <h2 class="hero-card-title">Hire verified blue-collar workers in hours</h2>
+        <p class="hero-card-desc">Trust-scored workers. AI-powered matching. Post jobs. Review applicants. Hire.</p>
+        <a href="#for-companies" class="hero-card-link">Learn more <span aria-hidden="true">↓</span></a>
+      </div>
+    </div>
+
+    <a href="#cta" class="play-badge" aria-label="Coming Soon on Google Play">
+      <span class="play-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg>
+      </span>
+      <span class="play-badge-text">
+        <span class="play-badge-small">Coming Soon on</span>
+        <span class="play-badge-big">Google Play</span>
+      </span>
+    </a>
+  </div>
+</section>
+
+<section class="section workers" id="for-workers">
+  <div class="container">
+    <h2 class="section-heading">Made for Workers. Built for Real India.</h2>
+    <div class="section-underline"></div>
+    <p class="section-sub">Whether you need today's work or a monthly job, BeeZee brings verified opportunities to you.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3 class="feature-title">Daily + monthly jobs</h3>
+        <p class="feature-desc">From naka work to long-term jobs — select what suits you.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎤</div>
+        <h3 class="feature-title">Voice-first input</h3>
+        <p class="feature-desc">Speak in Hindi, Marathi, or English to fill any field.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3 class="feature-title">Your language</h3>
+        <p class="feature-desc">Full app in Hindi, Marathi, and English.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">✓</div>
+        <h3 class="feature-title">Verified employers</h3>
+        <p class="feature-desc">Only verified companies can post jobs.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📲</div>
+        <h3 class="feature-title">WhatsApp alerts</h3>
+        <p class="feature-desc">Jobs find you via WhatsApp notifications.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💚</div>
+        <h3 class="feature-title">Always free</h3>
+        <p class="feature-desc">No charges, ever. We earn from employers, not workers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section companies" id="for-companies">
+  <div class="container">
+    <h2 class="section-heading">Hire Verified Workers. Faster.</h2>
+    <div class="section-underline"></div>
+    <p class="section-sub">Stop relying on WhatsApp forwards. Post a job, get matched with trust-scored candidates.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3 class="feature-title">Hire in hours</h3>
+        <p class="feature-desc">Post jobs. Match. Hire. Same day for urgent needs.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⭐</div>
+        <h3 class="feature-title">Trust scores</h3>
+        <p class="feature-desc">Every worker rated after each job. See verified history.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <h3 class="feature-title">AI-powered matching</h3>
+        <p class="feature-desc">Top candidates ranked by skill, location, and trust.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💼</div>
+        <h3 class="feature-title">Projects &amp; teams</h3>
+        <p class="feature-desc">Invite team members. Organize hiring by project.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3 class="feature-title">Track everything</h3>
+        <p class="feature-desc">Applications, response rates, ratings, analytics.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💳</div>
+        <h3 class="feature-title">Simple pricing</h3>
+        <p class="feature-desc">Free, Basic ₹499, Premium ₹999/month. UPI-first.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section how" id="how-it-works">
+  <div class="container">
+    <h2 class="section-heading">How BeeZee Works</h2>
+    <div class="section-underline"></div>
+    <p class="section-sub">Three simple steps — from signup to your next job or hire.</p>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-step-num">1</div>
+        <h3 class="how-step-title">Register</h3>
+        <p class="how-step-desc">90-second signup. Trade, location, done.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">2</div>
+        <h3 class="how-step-title">Match</h3>
+        <p class="how-step-desc">Workers get jobs, companies get candidates. AI-matched.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">3</div>
+        <h3 class="how-step-title">Work &amp; Rate</h3>
+        <p class="how-step-desc">Complete the job. Rate each other. Build trust.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section trust">
+  <div class="container">
+    <h2 class="section-heading">Trust Is the Product</h2>
+    <div class="section-underline"></div>
+    <p class="section-sub">Everything else is plumbing. Here's how we build trust.</p>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="trust-card-label">Identity</div>
+        <h3 class="trust-card-title">Verified from day one</h3>
+        <p class="trust-card-desc">Phone + OTP to start. Aadhaar KYC for higher trust scores and better matches.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-card-label">Work History</div>
+        <h3 class="trust-card-title">Every job counts</h3>
+        <p class="trust-card-desc">Every completed job adds to your verified work history. Badges reward consistency.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-card-label">Mutual Rating</div>
+        <h3 class="trust-card-title">Dignity on both sides</h3>
+        <p class="trust-card-desc">Workers rate companies. Companies rate workers. Both visible, both matter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div class="container">
+    <h2 class="section-heading">Why We Built BeeZee</h2>
+    <div class="section-underline"></div>
+    <div class="about-body">
+      <p>
+        India has 450 million blue-collar workers. The people who build homes, wire factories, service appliances, paint walls.
+      </p>
+      <p>
+        For most of them, finding the next job still means standing at a naka at 6 AM, hoping a contractor picks them up. Technology hasn't reached them.
+      </p>
+      <p>
+        BeeZee is built ground-up for this audience — voice-first, WhatsApp-enabled, trust-based. Because everyone deserves dignified access to work.
+      </p>
+      <p><strong style="color: var(--navy);">Launching across India. Built in Pune.</strong></p>
+      <div class="about-parent">
+        <div class="about-parent-label">BeeZee is a product of</div>
+        <a href="https://www.beeport.in" target="_blank" rel="noopener">
+          <span class="bee">Bee</span>PORT Technology
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section cta" id="cta">
+  <div class="container cta-inner">
+    <h2 class="section-heading">Launching Soon</h2>
+    <div class="section-underline"></div>
+    <p class="cta-sub">BeeZee will be available on Google Play Store soon. Stay tuned.</p>
+    <a href="#cta" class="cta-badge play-badge" aria-label="Coming Soon on Google Play">
+      <span class="play-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg>
+      </span>
+      <span class="play-badge-text">
+        <span class="play-badge-small">Coming Soon on</span>
+        <span class="play-badge-big">Google Play</span>
+      </span>
+    </a>
+    <p class="cta-contact">
+      For partnership, press, or investor enquiries:<br>
+      <a href="mailto:connect@beeport.in">connect@beeport.in</a>
+    </p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>&copy; 2026 BeePORT Technology. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="mailto:connect@beeport.in">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var nav = document.getElementById('nav');
+    var hamburger = document.getElementById('hamburger');
+    var navLinks = document.getElementById('navLinks');
+
+    function onScroll() {
+      if (window.scrollY > 20) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    hamburger.addEventListener('click', function () {
+      var open = navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    navLinks.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A' || e.target.closest('a')) {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
